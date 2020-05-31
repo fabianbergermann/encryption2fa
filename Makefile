@@ -1,4 +1,4 @@
-.PHONY: clean clean-test clean-pyc clean-build docs help
+.PHONY: clean clean-test clean-pyc clean-build docs help update-deps update init
 .DEFAULT_GOAL := help
 
 define BROWSER_PYSCRIPT
@@ -48,7 +48,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-	flake8 encryption2fa tests
+	flake8 src/encryption2fa tests
 
 test: ## run tests quickly with the default Python
 	python setup.py test
@@ -65,7 +65,7 @@ coverage: ## check code coverage quickly with the default Python
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/encryption2fa.rst
 	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ encryption2fa
+	sphinx-apidoc -o docs/ src/encryption2fa
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html
@@ -81,5 +81,16 @@ dist: clean ## builds source and wheel package
 	python setup.py bdist_wheel
 	ls -l dist
 
-install: clean ## install the package to the active Python's site-packages
-	python setup.py install
+update-deps: ## update package tools and requirement files
+	pip-compile --upgrade --generate-hashes
+	pip-compile --upgrade --generate-hashes --allow-unsafe --output-file dev-requirements.txt requirements_dev.in
+
+install: clean  ## install the package from the current directory
+	pip install --editable .
+	pip install --upgrade -r requirements.txt  -r dev-requirements.txt
+
+init:  clean ## init by installing pip-tools
+	pip install pip-tools
+	rm -rf .tox
+
+update: init update-deps install  ## upgrade required packages

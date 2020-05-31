@@ -19,9 +19,9 @@
 #
 import os
 import sys
+import encryption2fa
 sys.path.insert(0, os.path.abspath('..'))
 
-import encryption2fa
 
 # -- General configuration ---------------------------------------------
 
@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'encryption2fa'
-copyright = "2020, Fabian Bergermann"
+copy_right = "2020, Fabian Bergermann"
 author = "Fabian Bergermann"
 
 # The version info for the project you're documenting, acts as replacement
@@ -157,6 +157,3 @@ texinfo_documents = [
      'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-

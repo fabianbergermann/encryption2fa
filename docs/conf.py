@@ -19,7 +19,7 @@
 #
 import os
 import sys
-import encryption2fa
+from src import encryption2fa
 sys.path.insert(0, os.path.abspath('..'))
 
 

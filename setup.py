@@ -10,11 +10,12 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=7.0', 'cryptography', 'python-dotenv', 'pyarrow']
+requirements = ['Click>=7.0', 'cryptography', 'python-dotenv', 'pyarrow',
+                'pandas<=1.0.3']
 
-setup_requirements = [ ]
+setup_requirements = []
 
-test_requirements = [ ]
+test_requirements = []
 
 setup(
     author="Fabian Bergermann",

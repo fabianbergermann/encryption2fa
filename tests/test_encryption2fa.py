@@ -6,7 +6,7 @@
 import unittest
 from click.testing import CliRunner
 
-from encryption2fa import encryption2fa
+# from encryption2fa import encryption2fa
 from encryption2fa import cli
 
 

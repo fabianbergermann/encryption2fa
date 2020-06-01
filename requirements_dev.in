@@ -8,6 +8,6 @@ tox>=3.14.0
 coverage>=4.5.4
 Sphinx>=1.8.5
 twine>=1.14.0
-pandas
+pandas==1.0.3  # pandas 1.0.4 cannot read pd.read_parquet() from io.ByteIO() buffer
 numpy
 

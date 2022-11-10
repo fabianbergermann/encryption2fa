@@ -306,10 +306,7 @@ webencodings==0.5.1 \
     --hash=sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78 \
     --hash=sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923 \
     # via bleach
-wheel==0.34.2 \
-    --hash=sha256:8788e9155fe14f54164c1b9eb0a319d98ef02c160725587ad60f14ddc57b6f96 \
-    --hash=sha256:df277cb51e61359aba502208d680f90c0493adec6f0e848af94948778aed386e \
-    # via -r requirements_dev.in
+wheel==0.38.4 \    # via -r requirements_dev.in
 
 # The following packages are considered to be unsafe in a requirements file:
 pip==20.1.1 \
